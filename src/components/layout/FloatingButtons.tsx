@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp, MessageCircle, CheckCircle2 } from 'lucide-react';
+import { ArrowUp, CheckCircle2 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import { PardosChatbot } from '../chat/PardosChatbot';
 
 export const FloatingButtons: React.FC = () => {
   const { notification } = useCart();
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [showWhatsAppTooltip, setShowWhatsAppTooltip] = useState(false);
 
   useEffect(() => {
     const checkScroll = () => {
@@ -47,33 +47,8 @@ export const FloatingButtons: React.FC = () => {
           </button>
         )}
 
-        {/* WhatsApp Official Button */}
-        <div 
-          className="relative group"
-          onMouseEnter={() => setShowWhatsAppTooltip(true)}
-          onMouseLeave={() => setShowWhatsAppTooltip(false)}
-        >
-          {showWhatsAppTooltip && (
-            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-white text-gray-800 px-3.5 py-2 rounded-xl shadow-xl text-xs font-bold whitespace-nowrap border border-gray-100 hidden sm:block">
-              ¿Deseas pedir por WhatsApp?
-              <div className="text-[10px] text-[#25D366] font-extrabold uppercase">Atención Inmediata</div>
-            </div>
-          )}
-
-          <a
-            href="https://uqr.to/WhatssappPardos"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all group-hover:shadow-[0_0_20px_rgba(37,211,102,0.6)]"
-            aria-label="Pide por WhatsApp"
-          >
-            <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-400"></span>
-            </span>
-            <MessageCircle className="w-7 h-7 fill-white text-[#25D366]" />
-          </a>
-        </div>
+        {/* PardoBot Interactive Chatbot FAB (Pardos Chicken theme) */}
+        <PardosChatbot />
 
       </div>
     </>
