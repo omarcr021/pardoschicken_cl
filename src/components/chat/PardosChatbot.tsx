@@ -10,7 +10,7 @@ interface PardosChatbotFABProps {
 }
 
 export const PardosChatbot: React.FC<PardosChatbotFABProps> = ({ 
-  redirectUrl = "https://uqr.to/WhatssappPardos" // <-- INSERTA AQUÍ TU LINK DE REDIRECCIÓN
+  redirectUrl = "https://chatbot-pardoschicken-ia.streamlit.app/" // <-- INSERTA AQUÍ TU LINK DE REDIRECCIÓN
 }) => {
   const [showTooltip, setShowTooltip] = useState(true);
 
